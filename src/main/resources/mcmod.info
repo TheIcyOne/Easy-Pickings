@@ -1,0 +1,16 @@
+[
+{
+  "modid": "easypickings",
+  "name": "Easy Pickings",
+  "description": "Returning that which was lost.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["The_Icy_One"],
+  "credits": "Vazkii, for making my dreams into memes. Also Kit for some texturing work.",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
