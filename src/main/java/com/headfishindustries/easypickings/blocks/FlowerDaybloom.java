@@ -5,6 +5,7 @@ import java.util.Random;
 import com.headfishindustries.easypickings.EasyPickings;
 
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -20,6 +21,7 @@ public class FlowerDaybloom extends BlockBush{
 	protected int dedchance = 216000;
 
 	public FlowerDaybloom() {
+		super(Material.LEAVES);
 		this.setCreativeTab(CreativeTabs.COMBAT);
 		this.setUnlocalizedName("shit_flowr");
 		this.setHardness(1.0F);
