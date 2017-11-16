@@ -1,6 +1,5 @@
 package com.headfishindustries.easypickings;
 
-import com.headfishindustries.easypickings.blocks.BlockDefs;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -9,6 +8,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -20,7 +20,7 @@ public class EasyPickings
     public static final String MODID = "easypickings";
     public static final String VERSION = "1.0.1";
     
-    private static final BlockDefs BLOCK_DEFS = new BlockDefs();
+    private static final StuffDefs BLOCK_DEFS = new StuffDefs();
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -43,6 +43,12 @@ public class EasyPickings
     public static void registerModels(ModelRegistryEvent event) {
     	ModelLoader.setCustomModelResourceLocation(BLOCK_DEFS.ItemDaybloom, 0, new ModelResourceLocation(MODID + ":flower_daybloom", "inventory"));
     	ModelLoader.setCustomModelResourceLocation(BLOCK_DEFS.ItemNightshade, 0, new ModelResourceLocation(MODID + ":flower_nightshade", "inventory"));
+    	ModelLoader.setCustomModelResourceLocation(BLOCK_DEFS.ItemUnstableGoo, 0, new ModelResourceLocation(MODID + ":unstable_goo", "inventory"));
+    }
+    
+    @EventHandler
+    public void onPlayerDeath(LivingDeathEvent e){
+    	
     }
 
 }

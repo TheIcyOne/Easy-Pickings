@@ -1,2 +1,5 @@
 tile.shit_flowr.name=Daybloom
 tile.shitr_flowr.name=Nightshade
+item.boom_stick.name=Unstable Goo
+
+death.attack.craftinboom=%s couldn't handle the goo.
