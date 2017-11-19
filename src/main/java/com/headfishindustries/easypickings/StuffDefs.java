@@ -8,6 +8,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
+import vazkii.botania.api.BotaniaAPI;
+import vazkii.botania.api.subtile.signature.BasicSignature;
 
 public class StuffDefs {
 	
@@ -40,8 +43,8 @@ public class StuffDefs {
 	}
 	
 	public void registerBlocks(RegistryEvent.Register<Block> event){
-		event.getRegistry().register(this.BlockDaybloom);
-		event.getRegistry().register(this.BlockNightshade);
+			event.getRegistry().register(this.BlockDaybloom);
+			event.getRegistry().register(this.BlockNightshade);
 	}
 	
 	public void registerItems(RegistryEvent.Register<Item> event){

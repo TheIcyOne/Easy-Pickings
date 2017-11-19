@@ -14,11 +14,11 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = EasyPickings.MODID, version = EasyPickings.VERSION, acceptedMinecraftVersions="[1.12, 1.13]")
+@Mod(modid = EasyPickings.MODID, version = EasyPickings.VERSION, acceptedMinecraftVersions="[1.12, 1.13]", dependencies="after:botania")
 public class EasyPickings
 {
     public static final String MODID = "easypickings";
-    public static final String VERSION = "1.0.1";
+    public static final String VERSION = "1.2.0";
     
     private static final StuffDefs BLOCK_DEFS = new StuffDefs();
     
@@ -38,6 +38,7 @@ public class EasyPickings
     public static void registerItem(RegistryEvent.Register<Item> event) {
     	BLOCK_DEFS.registerItems(event);
     }
+    
     
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
