@@ -13,16 +13,16 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import vazkii.botania.api.mana.IManaReceiver;
 
-public class FlowerDaybloom extends BlockBush{
-	
-	
+
+
+public class FlowerDaybloom extends BlockBush{	
 	protected int dedchance = 216000;
 
 	public FlowerDaybloom() {
@@ -36,7 +36,13 @@ public class FlowerDaybloom extends BlockBush{
 	@Override
 	 public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
 	    {
+		if (rand.nextInt(20) == 1 ){
+			
+			worldIn.spawnParticle(EnumParticleTypes.CRIT_MAGIC, pos.getX() + rand.nextDouble() - 1, pos.getY() + rand.nextDouble() - 1, pos.getZ() + rand.nextDouble() - 1, rand.nextInt(4)-1, rand.nextInt(4)-2, rand.nextInt(4)-2);
+		}
+		if (Loader.isModLoaded("botania"))
 			this.doManaGen(worldIn, pos, state, rand);
+			
 	    }
 	/** If you're going to set dedchance to 1337 or less, this needs to be overridden. I could use 0 as my equivalent, but memes are just too important. **/
 	protected void doManaGen(World worldIn, BlockPos pos, IBlockState state, Random rand){
@@ -45,14 +51,15 @@ public class FlowerDaybloom extends BlockBush{
 		}
 		
 		/** This is a dumb implementation. Use Botania's SubTileEntity if you actually want to do this properly.**/
-		if (rand.nextInt(20) == 1 &&  Loader.isModLoaded("botania")){
+		if (rand.nextInt(20) == 1 && Loader.isModLoaded("botania")){
 
 			BlockPos target = MathsyStuff.offsetRandomly(pos, 5, rand);
-			if (worldIn.getTileEntity(target) instanceof IManaReceiver){
-				((IManaReceiver)worldIn.getTileEntity(target)).recieveMana(1);
+			if (worldIn.getTileEntity(target) instanceof vazkii.botania.api.mana.IManaReceiver){
+				((vazkii.botania.api.mana.IManaReceiver)worldIn.getTileEntity(target)).recieveMana(1);
 			}
 		}
 	}
+	
 	
 	private int getDedchance(){
 		return this.dedchance;
