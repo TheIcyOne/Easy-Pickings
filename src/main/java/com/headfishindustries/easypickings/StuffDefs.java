@@ -2,17 +2,12 @@ package com.headfishindustries.easypickings;
 
 import com.headfishindustries.easypickings.blocks.*;
 import com.headfishindustries.easypickings.blocks.fire.BlockAirImbuedFire;
-import com.headfishindustries.easypickings.blocks.fire.ImbuedFireBase;
 import com.headfishindustries.easypickings.items.*;
-import com.headfishindustries.easypickings.items.armour.obsidian.ItemObsidianArmour;
-
 import net.minecraft.block.Block;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Loader;
 
 public class StuffDefs {
 	

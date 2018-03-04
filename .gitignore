@@ -1,6 +1,7 @@
 # eclipse
+
 bin
-*
+
 .launch
 
 .settings
@@ -25,11 +26,16 @@ out
 
 
 # gradle
+
 build
 
 .gradle
 
 
 # other
+
 eclipse
+
 run
+
+*.launch
