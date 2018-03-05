@@ -106,7 +106,7 @@ public abstract class ImbuedFireBase extends Block implements IBlockColor{
 	}
 	
 	private void trySpread(World world, BlockPos pos){
-		BlockPos tt = pos.add(world.rand.nextInt(4) - 2, world.rand.nextInt(4) - 2, world.rand.nextInt(4) - 2);
+		BlockPos tt = pos.add(world.rand.nextInt(5) - 2, world.rand.nextInt(5) - 2, world.rand.nextInt(5) - 2);
 		if (world.getBlockState(tt.down()).getBlock() != Blocks.AIR && !(world.getBlockState(tt.down()).getBlock() instanceof ImbuedFireBase)){
 			world.getBlockState(tt.down()).getBlock();
 			Blocks.AIR.getDefaultState().getBlock();
