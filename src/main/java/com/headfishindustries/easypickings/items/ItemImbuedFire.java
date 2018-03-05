@@ -49,7 +49,7 @@ public class ItemImbuedFire extends ItemBlock implements IItemColor{
 
 	@Override
 	public int colorMultiplier(ItemStack stack, int tintIndex) {
-		return EnumFireType.fromMeta(stack.getMetadata()).getColourMultiplier();
+		return ((ImbuedFireBase)this.block).getFireType().getColourMultiplier();
 	}
 	
 	

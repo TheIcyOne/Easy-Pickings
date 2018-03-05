@@ -67,7 +67,8 @@ public class EasyConfiggings{
 				"minecraft:quartz_ore,minecraft:quartz_block",
 				"minecraft:gold_ore,minecraft:gold_block",
 				"minecraft:diamond_ore,minecraft:diamond_block",
-				"minecraft:emerald_ore,minecraft:emerald_block"				
+				"minecraft:emerald_ore,minecraft:emerald_block",
+				"minecraft:sand, minecraft:glass"
 		};
 		
 		public String[] perditionTransforms = {

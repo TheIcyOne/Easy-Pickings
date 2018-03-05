@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "easypickings:items/fire_orb_empty",
+		"layer1": "easypickings:items/fire_orb_internal"
+    }
+}

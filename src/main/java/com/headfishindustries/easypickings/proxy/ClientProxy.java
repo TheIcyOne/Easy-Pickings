@@ -43,6 +43,12 @@ public class ClientProxy extends CommonProxy{
     	
     	Minecraft.getMinecraft().getItemColors().registerItemColorHandler(itemColourHandler,
     			EasyPickings.STUFF_DEFS.itemAirFire,
-    			EasyPickings.STUFF_DEFS.itemEarthFire);
+    			EasyPickings.STUFF_DEFS.itemEarthFire,
+    			EasyPickings.STUFF_DEFS.itemFireFire,
+    			EasyPickings.STUFF_DEFS.itemOrderFire,
+    			EasyPickings.STUFF_DEFS.itemPerditionFire,
+    			EasyPickings.STUFF_DEFS.itemWaterFire,
+    			EasyPickings.STUFF_DEFS.itemWrathFire
+    			);
     }
 }

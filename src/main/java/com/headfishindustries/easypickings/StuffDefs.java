@@ -64,9 +64,13 @@ public class StuffDefs {
 		this.blockFireFire = (BlockFireImbuedFire) new BlockFireImbuedFire();
 		this.itemFireFire = new ItemImbuedFire(blockFireFire);
 		this.blockWaterFire = (BlockWaterImbuedFire) new BlockWaterImbuedFire();
+		this.itemWaterFire = new ItemImbuedFire(blockWaterFire);
 		this.blockPerditionFire = (BlockPerditionImbuedFire) new BlockPerditionImbuedFire();
+		this.itemPerditionFire = new ItemImbuedFire(blockPerditionFire);
 		this.blockOrderFire = (BlockOrderImbuedFire) new BlockOrderImbuedFire();
+		this.itemOrderFire = new ItemImbuedFire(blockOrderFire);
 		this.blockWrathFire = (BlockWrathFire) new BlockWrathFire();
+		this.itemWrathFire = new ItemImbuedFire(blockWrathFire);
 		
 		//Unstable ingot and old ExU stuff
 		this.itemUnstableGoo = (com.headfishindustries.easypickings.items.ItemUnstableGoo) new ItemUnstableGoo().setRegistryName("unstable_goo");
@@ -96,7 +100,7 @@ public class StuffDefs {
 		event.getRegistry().register(this.itemNightshade);
 		event.getRegistry().register(this.itemUnstableGoo);
 		
-		event.getRegistry().registerAll(this.itemAirFire, this.itemEarthFire, this.itemFireFire);
+		event.getRegistry().registerAll(this.itemAirFire, this.itemEarthFire, this.itemFireFire, this.itemWaterFire, this.itemOrderFire, this.itemPerditionFire, this.itemWrathFire);
 		
 /*		event.getRegistry().register(this.obsidianHat);
 		event.getRegistry().register(this.obsidianStomachGuard);
