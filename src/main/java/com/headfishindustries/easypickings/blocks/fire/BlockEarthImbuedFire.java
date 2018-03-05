@@ -6,7 +6,7 @@ import com.headfishindustries.easypickings.items.ItemImbuedFire.EnumFireType;
 
 import net.minecraft.block.state.IBlockState;
 
-public class BlockAirImbuedFire extends ImbuedFireBase{
+public class BlockEarthImbuedFire  extends ImbuedFireBase{
 
 	@Override
 	public HashMap<IBlockState, IBlockState> getTransformations() {
@@ -15,12 +15,11 @@ public class BlockAirImbuedFire extends ImbuedFireBase{
 
 	@Override
 	public EnumFireType getFireType() {
-		return EnumFireType.AIR;
+		return EnumFireType.EARTH;
 	}
 
 	@Override
 	public void setTransform(IBlockState a, IBlockState b) {
 		transforms.put(a, b);		
 	}
-
 }

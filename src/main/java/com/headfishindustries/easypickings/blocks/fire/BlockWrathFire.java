@@ -6,7 +6,7 @@ import com.headfishindustries.easypickings.items.ItemImbuedFire.EnumFireType;
 
 import net.minecraft.block.state.IBlockState;
 
-public class BlockAirImbuedFire extends ImbuedFireBase{
+public class BlockWrathFire extends ImbuedFireBase{
 
 	@Override
 	public HashMap<IBlockState, IBlockState> getTransformations() {
@@ -15,7 +15,7 @@ public class BlockAirImbuedFire extends ImbuedFireBase{
 
 	@Override
 	public EnumFireType getFireType() {
-		return EnumFireType.AIR;
+		return EnumFireType.WRATH;
 	}
 
 	@Override
@@ -24,3 +24,4 @@ public class BlockAirImbuedFire extends ImbuedFireBase{
 	}
 
 }
+

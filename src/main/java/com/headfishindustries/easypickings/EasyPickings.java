@@ -61,9 +61,9 @@ public class EasyPickings
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
     	   	
-    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.ItemDaybloom, 0, new ModelResourceLocation(MODID + ":flower_daybloom", "inventory"));
-    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.ItemNightshade, 0, new ModelResourceLocation(MODID + ":flower_nightshade", "inventory"));
-    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.ItemUnstableGoo, 0, new ModelResourceLocation(MODID + ":unstable_goo", "inventory"));
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemDaybloom, 0, new ModelResourceLocation(MODID + ":flower_daybloom", "inventory"));
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemNightshade, 0, new ModelResourceLocation(MODID + ":flower_nightshade", "inventory"));
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemUnstableGoo, 0, new ModelResourceLocation(MODID + ":unstable_goo", "inventory"));
     	
     	//ModelLoader.setCustomStateMapper(STUFF_DEFS.BlockAirFire, new FireMapper.Builder().ignore(/*BlockFire.AGE, BlockFire.EAST, BlockFire.NORTH, BlockFire.SOUTH, BlockFire.WEST*/).build());
     }
@@ -79,7 +79,7 @@ public class EasyPickings
     	if (!w.getGameRules().hasRule("extinguishImbuedFires")){
     		w.getGameRules().addGameRule("extinguishImbuedFires", "false", ValueType.BOOLEAN_VALUE);;
     	}
-    	STUFF_DEFS.BlockAirFire.updateTransforms(EasyConfiggings.fireTransforms.airTransforms);
+    	STUFF_DEFS.blockAirFire.updateTransforms(EasyConfiggings.fireTransforms.airTransforms);
     }
 
 }

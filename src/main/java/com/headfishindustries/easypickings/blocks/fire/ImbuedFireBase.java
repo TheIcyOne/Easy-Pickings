@@ -42,18 +42,14 @@ public abstract class ImbuedFireBase extends Block implements IBlockColor{
 		super(Material.FIRE);
 		setRegistryName("imbuedfire_" + getFireType());
 		setTickRandomly(true);
+		setLightLevel(1F);
 	}
+
 	
-/*	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
-    {
-			return state.withProperty(NORTH, false)
-                       	.withProperty(EAST,  false)
-                        .withProperty(SOUTH, false)
-                        .withProperty(WEST,  false)
-                        .withProperty(UPPER, true);
-        
-        //return this.getDefaultState();
-    }*/
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+}
 	
 	@Nullable
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
@@ -82,7 +78,6 @@ public abstract class ImbuedFireBase extends Block implements IBlockColor{
 				continue;
 			}
 			IBlockState val = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(in.split(",")[1])).getDefaultState();
-			EasyPickings.LOGGER.info(key.toString() + " " + val.toString());
 			setTransform(key, val);
 		}
 		
@@ -152,7 +147,7 @@ public abstract class ImbuedFireBase extends Block implements IBlockColor{
 	@SideOnly(Side.CLIENT)
     public BlockRenderLayer getBlockLayer()
     {
-        return BlockRenderLayer.TRANSLUCENT;
+        return BlockRenderLayer.CUTOUT;
     }
 	
 	public int tickRate(World w) {
@@ -171,6 +166,8 @@ public abstract class ImbuedFireBase extends Block implements IBlockColor{
 		return colourMultiplier();
 	}
 	
-	public abstract int colourMultiplier();
+	public int colourMultiplier(){
+		return getFireType().getColourMultiplier();
+	}
 	
 }
