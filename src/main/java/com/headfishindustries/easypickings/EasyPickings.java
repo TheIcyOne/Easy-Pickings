@@ -26,7 +26,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class EasyPickings
 {
     public static final String MODID = "easypickings";
-    public static final String VERSION = "1.3.0";
+    public static final String VERSION = "1.3.1";
     public static final Logger LOGGER = LogManager.getLogger(MODID);
     
     public static final StuffDefs STUFF_DEFS = new StuffDefs();
@@ -64,6 +64,16 @@ public class EasyPickings
     	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemDaybloom, 0, new ModelResourceLocation(MODID + ":flower_daybloom", "inventory"));
     	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemNightshade, 0, new ModelResourceLocation(MODID + ":flower_nightshade", "inventory"));
     	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemUnstableGoo, 0, new ModelResourceLocation(MODID + ":unstable_goo", "inventory"));
+    	
+    	ModelResourceLocation fire = new ModelResourceLocation(MODID + ":imbued_fire", "inventory");
+    	
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemAirFire, 0, fire);
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemEarthFire, 0, fire);
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemFireFire, 0, fire);
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemWaterFire, 0, fire);
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemOrderFire, 0, fire);
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemPerditionFire, 0, fire);
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemWrathFire, 0, fire);
     	
     	//ModelLoader.setCustomStateMapper(STUFF_DEFS.BlockAirFire, new FireMapper.Builder().ignore(/*BlockFire.AGE, BlockFire.EAST, BlockFire.NORTH, BlockFire.SOUTH, BlockFire.WEST*/).build());
     }
