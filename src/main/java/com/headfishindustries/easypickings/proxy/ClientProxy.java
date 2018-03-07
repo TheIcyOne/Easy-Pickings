@@ -16,9 +16,9 @@ public class ClientProxy extends CommonProxy{
     	BlockColors  blockColour = Minecraft.getMinecraft().getBlockColors();
 
     	final IBlockColor blockColourHandler = (state, blockAccess, pos, tintIndex) -> {
-    		if (blockAccess != null && pos != null) {
-    			ImbuedFireBase fire = (ImbuedFireBase) (blockAccess.getBlockState(pos).getBlock());
-    			return fire.colourMultiplier();
+    		if (blockAccess != null && pos != null && state !=null) {
+    			IBlockColor block = (IBlockColor) (blockAccess.getBlockState(pos).getBlock());
+    			return block.colorMultiplier(state, blockAccess, pos, tintIndex);
     		}
 
     		return 0xFFFFFF;
@@ -26,8 +26,8 @@ public class ClientProxy extends CommonProxy{
     	
     	final IItemColor itemColourHandler = (stack, meta) -> {
     		if (stack != null){
-    			ItemImbuedFire fire = (ItemImbuedFire) stack.getItem();
-    			return fire.colorMultiplier(stack, 1);
+    			IItemColor item = (IItemColor) stack.getItem();
+    			return item.colorMultiplier(stack, 1);
     		}
     		return 0xFFFFFF;
     	};
@@ -48,7 +48,8 @@ public class ClientProxy extends CommonProxy{
     			EasyPickings.STUFF_DEFS.itemOrderFire,
     			EasyPickings.STUFF_DEFS.itemPerditionFire,
     			EasyPickings.STUFF_DEFS.itemWaterFire,
-    			EasyPickings.STUFF_DEFS.itemWrathFire
+    			EasyPickings.STUFF_DEFS.itemWrathFire,
+    			EasyPickings.STUFF_DEFS.itemUnstableGoo
     			);
     }
 }

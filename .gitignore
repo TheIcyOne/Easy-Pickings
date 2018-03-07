@@ -39,3 +39,4 @@ eclipse
 run
 
 *.launch
+/libs/*
