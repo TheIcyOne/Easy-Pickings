@@ -1,10 +1,12 @@
 package com.headfishindustries.easypickings.items;
 
+import java.util.Date;
 import java.util.List;
 
 import com.headfishindustries.easypickings.EasyPickings;
 
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -61,12 +63,12 @@ public class ItemUnstableGoo extends Item implements IItemColor{
     
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn){
-    	tooltip.add("WARNING: HIGHLY EXPLOSIVE");
+    	tooltip.add(I18n.format("goo.tooltip.top"));
     	if (stack.getTagCompound() != null){
     	Integer timeLeft = stack.getTagCompound().getInteger(STACK_KEY);
-    	tooltip.add("Will explode in " + Math.round(Math.floor(timeLeft/100)) +  "." + Math.abs(timeLeft) % 100 + " seconds.");
+    	tooltip.add(I18n.format("goo.tooltip.timer",  Math.round(Math.floor(timeLeft/100)), Math.abs(timeLeft) % 100));
     	}
-    	tooltip.add("Craft with greatest of haste.");
+    	tooltip.add(I18n.format("goo.tooltip.last"));
     }
 
 	@Override

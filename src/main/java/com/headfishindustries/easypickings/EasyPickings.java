@@ -22,11 +22,12 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = EasyPickings.MODID, version = EasyPickings.VERSION, acceptedMinecraftVersions="[1.12, 1.13]", dependencies="after:botania")
+@Mod(modid = EasyPickings.MODID, version = EasyPickings.VERSION, name = EasyPickings.NAME, acceptedMinecraftVersions="[1.12, 1.13]", dependencies="after:botania")
 public class EasyPickings
 {
     public static final String MODID = "easypickings";
-    public static final String VERSION = "1.3.1";
+    public static final String VERSION = "%gradle.version%";
+    public static final String NAME = "Easy Pickings";
     public static final Logger LOGGER = LogManager.getLogger(MODID);
     
     public static final StuffDefs STUFF_DEFS = new StuffDefs();
