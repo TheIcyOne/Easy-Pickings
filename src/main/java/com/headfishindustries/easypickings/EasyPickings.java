@@ -91,6 +91,12 @@ public class EasyPickings
     		w.getGameRules().addGameRule("extinguishImbuedFires", "false", ValueType.BOOLEAN_VALUE);;
     	}
     	STUFF_DEFS.blockAirFire.updateTransforms(EasyConfiggings.fireTransforms.airTransforms);
+    	STUFF_DEFS.blockEarthFire.updateTransforms(EasyConfiggings.fireTransforms.earthTransforms);
+    	STUFF_DEFS.blockFireFire.updateTransforms(EasyConfiggings.fireTransforms.fireTransforms);
+    	STUFF_DEFS.blockWaterFire.updateTransforms(EasyConfiggings.fireTransforms.waterTransforms);
+    	STUFF_DEFS.blockOrderFire.updateTransforms(EasyConfiggings.fireTransforms.orderTransforms);
+    	STUFF_DEFS.blockPerditionFire.updateTransforms(EasyConfiggings.fireTransforms.perditionTransforms);
+    	STUFF_DEFS.blockWrathFire.updateTransforms(EasyConfiggings.fireTransforms.wrathTransforms);
     }
 
 }
