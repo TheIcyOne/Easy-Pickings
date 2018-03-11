@@ -25,7 +25,7 @@ public class ClientProxy extends CommonProxy{
     	};
     	
     	final IItemColor itemColourHandler = (stack, meta) -> {
-    		if (stack != null){
+    		if (stack != null && stack.getItem() != null){
     			IItemColor item = (IItemColor) stack.getItem();
     			return item.colorMultiplier(stack, 1);
     		}

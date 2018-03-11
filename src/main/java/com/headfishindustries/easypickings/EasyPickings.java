@@ -15,6 +15,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.world.WorldEvent;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -35,6 +36,10 @@ public class EasyPickings
     @SidedProxy(serverSide="com.headfishindustries.easypickings.proxy.CommonProxy", clientSide="com.headfishindustries.easypickings.proxy.ClientProxy")
     static CommonProxy proxy;
     
+    static{
+		FluidRegistry.enableUniversalBucket();
+    }
+    
     @EventHandler
     public void preInit(FMLPreInitializationEvent e)
     {
@@ -44,12 +49,22 @@ public class EasyPickings
     @EventHandler
     public void init(FMLInitializationEvent e){
     	proxy.init(e);
+    	
+    	
     }
     
     @SubscribeEvent
     public static void registerBlock(RegistryEvent.Register<Block> event) {
     	
     	STUFF_DEFS.registerBlocks(event);
+    	
+    	STUFF_DEFS.blockAirFire.updateTransforms(EasyConfiggings.fireTransforms.airTransforms);
+    	STUFF_DEFS.blockEarthFire.updateTransforms(EasyConfiggings.fireTransforms.earthTransforms);
+    	STUFF_DEFS.blockFireFire.updateTransforms(EasyConfiggings.fireTransforms.fireTransforms);
+    	STUFF_DEFS.blockWaterFire.updateTransforms(EasyConfiggings.fireTransforms.waterTransforms);
+    	STUFF_DEFS.blockOrderFire.updateTransforms(EasyConfiggings.fireTransforms.orderTransforms);
+    	STUFF_DEFS.blockPerditionFire.updateTransforms(EasyConfiggings.fireTransforms.perditionTransforms);
+    	STUFF_DEFS.blockWrathFire.updateTransforms(EasyConfiggings.fireTransforms.wrathTransforms);
 
     }
     

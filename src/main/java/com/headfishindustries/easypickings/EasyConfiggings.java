@@ -14,12 +14,11 @@ public class EasyConfiggings{
 	public static class FireTransforms{
 		@Config.Name(value = "Fire Imbued Fire")
 		public String[] fireTransforms = {
-				"minecraft:grass_block,minecraft:netherrack",
+				"minecraft:grass,minecraft:netherrack",
 				"minecraft:dirt,minecraft:netherrack",
 				"minecraft:sand,minecraft:soul_sand",
 				"minecraft:gravel,minecraft:soul_sand",
-				"minecraft:clay,minecraft:glowstone",
-				"minecraft:tallgrass, minecraft:air"
+				"minecraft:clay,minecraft:glowstone"
 				};
 
 		public String[] waterTransforms = {
@@ -31,13 +30,12 @@ public class EasyConfiggings{
 		};
 
 		public String[] airTransforms = {
-				"minecraft:grass_block,minecraft:sand",
+				"minecraft:grass,minecraft:sand",
 				"minecraft:dirt,minecraft:sand",
 				"minecraft:log,minecraft:sand",
 				"minecraft:leaves,minecraft:sand",
 				"minecraft:ice,minecraft:glass",
-				"minecraft:water,minecraft:cake",
-				"minecraft:tallgrass, minecraft:air"
+				"minecraft:water,minecraft:cake"
 				};
 
 		public String[] earthTransforms = {
@@ -54,8 +52,8 @@ public class EasyConfiggings{
 				"minecraft:gravel,minecraft:clay",
 				"minecraft:cactus,minecraft:log",
 				"minecraft:nether_brick,minecraft:planks",
-				"minecraft:nether_brick_fence,minecraft:oak_fence",
-				"minecraft:oak_fence,minecraft:oak_stairs",
+				"minecraft:nether_brick_fence,minecraft:fence",
+				"minecraft:nether_brick_stairs,minecraft:oak_stairs",
 				"minecraft:mob_spawner,minecraft:iron_block"
 		};
 
@@ -68,7 +66,7 @@ public class EasyConfiggings{
 				"minecraft:gold_ore,minecraft:gold_block",
 				"minecraft:diamond_ore,minecraft:diamond_block",
 				"minecraft:emerald_ore,minecraft:emerald_block",
-				"minecraft:sand, minecraft:glass"
+				"minecraft:sand,minecraft:glass"
 		};
 		
 		public String[] perditionTransforms = {
@@ -77,7 +75,7 @@ public class EasyConfiggings{
 		};
 
 		public String[] wrathTransforms = {
-			"minecraft:iron_block, minecraft:lapis_block" //Pretend this is wrath iron k thx
+				"minecraft:iron_block,minecraft:lapis_block" //Pretend this is wrath iron k thx
 		};
 
 	}

@@ -2,6 +2,7 @@ package com.headfishindustries.easypickings.items;
 
 import java.util.List;
 
+import com.headfishindustries.easypickings.EasyPickings;
 import com.headfishindustries.easypickings.blocks.fire.ImbuedFireBase;
 
 import net.minecraft.block.Block;
@@ -75,6 +76,28 @@ public class ItemImbuedFire extends ItemBlock implements IItemColor{
 
 		public int getMeta() {
 			return meta;
+		}
+		
+		public ItemImbuedFire getItem(){
+			switch(this){
+			case AIR:
+				return EasyPickings.STUFF_DEFS.itemAirFire;
+			case EARTH:
+				return EasyPickings.STUFF_DEFS.itemEarthFire;
+			case FIRE:
+				return EasyPickings.STUFF_DEFS.itemFireFire;
+			case LOSS:
+				return EasyPickings.STUFF_DEFS.itemPerditionFire;
+			case ORDER:
+				return EasyPickings.STUFF_DEFS.itemOrderFire;
+			case WATER:
+				return EasyPickings.STUFF_DEFS.itemWaterFire;
+			case WRATH:
+				return EasyPickings.STUFF_DEFS.itemWrathFire;
+			default:
+				return null;
+			
+			}
 		}
 
 		public String getName() {

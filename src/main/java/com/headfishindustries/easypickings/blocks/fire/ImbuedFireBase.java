@@ -79,6 +79,7 @@ public abstract class ImbuedFireBase extends Block implements IBlockColor{
 			}
 			IBlockState val = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(in.split(",")[1])).getDefaultState();
 			setTransform(key, val);
+			FireTransforms.addTransform(this.getFireType().getItem(), key, val);
 		}
 		
 	}
