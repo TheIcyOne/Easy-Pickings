@@ -15,7 +15,7 @@ import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.world.World;
 
-public class ItemImbuedFire extends ItemBlock implements IItemColor{
+public class ItemImbuedFire extends ItemBlock implements IWantMyOwnItemColour{
 
 
 	public ItemImbuedFire(ImbuedFireBase b) {

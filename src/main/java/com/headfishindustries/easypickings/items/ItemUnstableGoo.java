@@ -1,11 +1,9 @@
 package com.headfishindustries.easypickings.items;
 
-import java.util.Date;
 import java.util.List;
 
 import com.headfishindustries.easypickings.EasyPickings;
 
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -16,7 +14,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class ItemUnstableGoo extends Item implements IItemColor{
+public class ItemUnstableGoo extends Item implements IWantMyOwnItemColour{
 	
 	private static final String STACK_KEY = EasyPickings.MODID + "";
 

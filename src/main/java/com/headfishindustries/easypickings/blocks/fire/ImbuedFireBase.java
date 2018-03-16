@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 
 import com.headfishindustries.easypickings.EasyPickings;
+import com.headfishindustries.easypickings.blocks.IWantMyOwnBlockColour;
 import com.headfishindustries.easypickings.items.ItemImbuedFire.EnumFireType;
 
 import net.minecraft.block.Block;
@@ -26,7 +27,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class ImbuedFireBase extends Block implements IBlockColor{
+public abstract class ImbuedFireBase extends Block implements IWantMyOwnBlockColour{
 	
 	protected HashMap<IBlockState, IBlockState> transforms = new HashMap<IBlockState, IBlockState>();
 	/*public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);

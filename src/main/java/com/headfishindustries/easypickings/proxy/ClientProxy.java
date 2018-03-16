@@ -1,7 +1,9 @@
 package com.headfishindustries.easypickings.proxy;
 
 import com.headfishindustries.easypickings.EasyPickings;
+import com.headfishindustries.easypickings.blocks.IWantMyOwnBlockColour;
 import com.headfishindustries.easypickings.blocks.fire.ImbuedFireBase;
+import com.headfishindustries.easypickings.items.IWantMyOwnItemColour;
 import com.headfishindustries.easypickings.items.ItemImbuedFire;
 
 import net.minecraft.client.Minecraft;
@@ -16,8 +18,8 @@ public class ClientProxy extends CommonProxy{
     	BlockColors  blockColour = Minecraft.getMinecraft().getBlockColors();
 
     	final IBlockColor blockColourHandler = (state, blockAccess, pos, tintIndex) -> {
-    		if (blockAccess != null && pos != null && state !=null) {
-    			IBlockColor block = (IBlockColor) (blockAccess.getBlockState(pos).getBlock());
+    		if (blockAccess != null && pos != null && state !=null && blockAccess.getBlockState(pos).getBlock() instanceof IWantMyOwnBlockColour) {
+    			IWantMyOwnBlockColour block = (IWantMyOwnBlockColour) (blockAccess.getBlockState(pos).getBlock());
     			return block.colorMultiplier(state, blockAccess, pos, tintIndex);
     		}
 
@@ -25,8 +27,8 @@ public class ClientProxy extends CommonProxy{
     	};
     	
     	final IItemColor itemColourHandler = (stack, meta) -> {
-    		if (stack != null && stack.getItem() != null){
-    			IItemColor item = (IItemColor) stack.getItem();
+    		if (stack != null && stack.getItem() != null && stack.getItem() instanceof IWantMyOwnItemColour){
+    			IWantMyOwnItemColour item = (IWantMyOwnItemColour) stack.getItem();
     			return item.colorMultiplier(stack, 1);
     		}
     		return 0xFFFFFF;
