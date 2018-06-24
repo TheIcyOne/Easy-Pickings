@@ -79,7 +79,10 @@ public class EasyPickings
     	   	
     	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemDaybloom, 0, new ModelResourceLocation(MODID + ":flower_daybloom", "inventory"));
     	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemNightshade, 0, new ModelResourceLocation(MODID + ":flower_nightshade", "inventory"));
+    	
     	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemUnstableGoo, 0, new ModelResourceLocation(MODID + ":unstable_goo", "inventory"));
+    	
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemClimbingRock, 0, new ModelResourceLocation(MODID + ":climbing_rock", "inventory"));
     	
     	ModelResourceLocation fire = new ModelResourceLocation(MODID + ":imbued_fire", "inventory");
     	

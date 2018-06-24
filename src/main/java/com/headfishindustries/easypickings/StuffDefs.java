@@ -11,12 +11,10 @@ import net.minecraftforge.event.RegistryEvent;
 
 public class StuffDefs {
 	
-	public FlowerNightshade blockNightshade;
-	public ItemBlock itemNightshade;
-	
+	//Blocko
 	public FlowerDaybloom blockDaybloom;
-	public ItemBlock itemDaybloom;
-	
+	public FlowerNightshade blockNightshade;
+
 	public BlockAirImbuedFire blockAirFire;
 	public BlockEarthImbuedFire blockEarthFire;
 	public BlockFireImbuedFire blockFireFire;
@@ -24,6 +22,12 @@ public class StuffDefs {
 	public BlockOrderImbuedFire blockOrderFire;
 	public BlockPerditionImbuedFire blockPerditionFire;
 	public BlockWrathFire blockWrathFire;
+	
+	public BlockClimbingRock blockClimbingRock;
+	
+	//Itemo
+	public ItemBlock itemNightshade;
+	public ItemBlock itemDaybloom;
 	
 	public ItemImbuedFire itemAirFire;
 	public ItemImbuedFire itemEarthFire;
@@ -34,6 +38,8 @@ public class StuffDefs {
 	public ItemImbuedFire itemWrathFire;
 	
 	public ItemUnstableGoo itemUnstableGoo;
+	
+	public ItemBlock itemClimbingRock;
 	
 /*	public ItemObsidianArmour obsidianHat;
 	public ItemObsidianArmour obsidianStomachGuard;
@@ -75,6 +81,11 @@ public class StuffDefs {
 		//Unstable ingot and old ExU stuff
 		this.itemUnstableGoo = (com.headfishindustries.easypickings.items.ItemUnstableGoo) new ItemUnstableGoo().setRegistryName("unstable_goo");
 		
+		//Rock climbing.
+		ResourceLocation climbRockRL = new ResourceLocation(EasyPickings.MODID, "climbing_rock");
+		this.blockClimbingRock = (BlockClimbingRock) new BlockClimbingRock().setRegistryName(climbRockRL);
+		this.itemClimbingRock = (ItemBlock) new ItemBlock(blockClimbingRock).setRegistryName(climbRockRL);
+		
 /*		this.obsidianHat = new ItemObsidianArmour(EntityEquipmentSlot.HEAD, "obsidian_helmet", ItemObsidianArmour.obsidianArmourMaterial);
 		this.obsidianStomachGuard = new ItemObsidianArmour(EntityEquipmentSlot.CHEST, "obsidian_chestplate", ItemObsidianArmour.obsidianArmourMaterial);
 		this.obsidianTrouser = new ItemObsidianArmour(EntityEquipmentSlot.LEGS, "obsidian_legs", ItemObsidianArmour.obsidianArmourMaterial);
@@ -92,6 +103,7 @@ public class StuffDefs {
 					this.blockPerditionFire,
 					this.blockWaterFire,
 					this.blockWrathFire);
+			event.getRegistry().register(blockClimbingRock);
 
 	}
 	
@@ -101,6 +113,8 @@ public class StuffDefs {
 		event.getRegistry().register(this.itemUnstableGoo);
 		
 		event.getRegistry().registerAll(this.itemAirFire, this.itemEarthFire, this.itemFireFire, this.itemWaterFire, this.itemOrderFire, this.itemPerditionFire, this.itemWrathFire);
+		
+		event.getRegistry().register(this.itemClimbingRock);
 		
 /*		event.getRegistry().register(this.obsidianHat);
 		event.getRegistry().register(this.obsidianStomachGuard);
