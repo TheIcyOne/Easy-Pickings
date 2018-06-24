@@ -40,6 +40,7 @@ minecraft {
     version = "1.12.2-14.23.1.2594"
     runDir = "run"
 	useDepAts = true
+	replace "%gradle.version%", project.version
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
     // stable_#            stables are built at the discretion of the MCP team.

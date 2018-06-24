@@ -88,6 +88,7 @@ public abstract class ImbuedFireBase extends Block implements IWantMyOwnBlockCol
 	
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
+		worldIn.profiler.startSection("Flaming.");
 		if (!worldIn.getGameRules().getBoolean("extinguishImbuedFires")){
 			if (worldIn.getGameRules().getBoolean("doFireTick")){
 				if (worldIn.getBlockState(pos.down()).getBlock().equals(Blocks.AIR) || worldIn.getBlockState(pos.down()).getBlock() instanceof ImbuedFireBase) worldIn.setBlockToAir(pos);
@@ -99,20 +100,18 @@ public abstract class ImbuedFireBase extends Block implements IWantMyOwnBlockCol
 		}else {
 			worldIn.setBlockToAir(pos);
 		}
+		worldIn.profiler.endSection();
     }
 	
-	private void trySpread(World world, BlockPos pos, Integer iterations){
+	protected void trySpread(World world, BlockPos pos, Integer iterations){
 		for (int i = 1; i < iterations; i++){
 			trySpread(world, pos);
 		}
 	}
 	
-	private void trySpread(World world, BlockPos pos){
+	protected void trySpread(World world, BlockPos pos){
 		BlockPos tt = pos.add(world.rand.nextInt(5) - 2, world.rand.nextInt(5) - 2, world.rand.nextInt(5) - 2);
-		if (world.getBlockState(tt.down()).getBlock() != Blocks.AIR && !(world.getBlockState(tt.down()).getBlock() instanceof ImbuedFireBase)){
-			world.getBlockState(tt.down()).getBlock();
-			Blocks.AIR.getDefaultState().getBlock();
-			
+		if (world.getBlockState(tt.down()).getBlock() != Blocks.AIR && !(world.getBlockState(tt.down()).getBlock() instanceof ImbuedFireBase)){		
 			if (world.getBlockState(tt).getBlock().equals(Blocks.AIR)){
 				world.setBlockState(tt, this.getDefaultState());
 				transformBlock(world, pos.down());
@@ -155,7 +154,7 @@ public abstract class ImbuedFireBase extends Block implements IWantMyOwnBlockCol
 	public int tickRate(World w) {
 		//Set to 1 for supersonicfire
 		
-		return 1;
+		return 5;
 	}
 	
 	@Override
