@@ -16,8 +16,11 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 
@@ -36,10 +39,7 @@ public class FlowerDaybloom extends BlockBush{
 	@Override
 	 public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
 	    {
-		if (rand.nextInt(20) == 1 ){
-			
-			worldIn.spawnParticle(EnumParticleTypes.CRIT_MAGIC, pos.getX() + rand.nextDouble() - 1, pos.getY() + rand.nextDouble() - 1, pos.getZ() + rand.nextDouble() - 1, rand.nextInt(4)-1, rand.nextInt(4)-2, rand.nextInt(4)-2);
-		}
+//		if (rand.nextInt(20) == 1 )
 		if (Loader.isModLoaded("botania"))
 			this.doManaGen(worldIn, pos, state, rand);
 			
@@ -64,6 +64,19 @@ public class FlowerDaybloom extends BlockBush{
 	private int getDedchance(){
 		return this.dedchance;
 	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void randomDisplayTick(IBlockState s, World worldIn, BlockPos pos, Random rand) {
+		Vec3d dir = new Vec3d(rand.nextDouble(), rand.nextDouble(), rand.nextDouble()).normalize();
+		int n = rand.nextInt(48);
+		if (n < 4 || n >20) return;
+		for (int i = 0; i<n; i++) {
+			Vec3d cur_dir = dir.rotateYaw((float) (2f * i * Math.PI / n));
+			worldIn.spawnParticle(EnumParticleTypes.CRIT_MAGIC, pos.getX() + cur_dir.x * 0.75 + 0.5, pos.getY() + cur_dir.y * 0.5, pos.getZ() + cur_dir.z * 0.25 + 0.5, cur_dir.x * 0.5, cur_dir.y, cur_dir.z);
+
+		}
+}
 
 	
 }
