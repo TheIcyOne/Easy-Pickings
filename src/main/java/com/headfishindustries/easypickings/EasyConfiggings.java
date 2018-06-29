@@ -1,6 +1,9 @@
 package com.headfishindustries.easypickings;
 
 import net.minecraftforge.common.config.Config;
+import net.minecraftforge.common.config.ConfigManager;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 
 @Config(modid=EasyPickings.MODID, name="Easy Configgings")
@@ -9,8 +12,8 @@ public class EasyConfiggings{
 	@Config.Name(value = "Imbued Fire Transformations")
 	@Config.Comment(value = { "Used to modify block transforms for Imbued Fires.", "Use the format 'modid:blockIn, modid:blockOut'"})
 	@Config.RequiresWorldRestart
+	@Config.RequiresMcRestart
 	public static FireTransforms fireTransforms = new FireTransforms();
-	
 	public static class FireTransforms{
 		@Config.Name(value = "Fire Imbued Fire")
 		public String[] fireTransforms = {
@@ -80,4 +83,31 @@ public class EasyConfiggings{
 
 	}
 
+	@Config.Name(value = "Passive Flower Settings")
+	@Config.Comment(value = {"Settings for Daybloom and Nightshade."})
+	public static FlowerSettings flowerSettings = new FlowerSettings();
+	public static class FlowerSettings{
+		
+		@Config.Comment(value = {"The mana generated per burst by the daybloom.", "For reference, the hydroangea generates 1 mana per burst, i.e. every 3 ticks.", "Set to 0 to disable mana generation."})
+		@Config.RangeInt(min = 0)
+		public int daybloomMana = 1;
+		@Config.Comment(value = "Mana generated per burst by the nightshade.")
+		@Config.RangeInt(min = 0)
+		public int nightshadeMana = 1;
+		
+		@Config.Comment(value = "Increase this to spawn more particles per burst.")
+		@Config.RangeInt(min = 0)
+		public int maxBurstParticles = 20;
+		
+		@Config.Comment(value = {"Increasing this makes dayblooms and nightshades create more frequent particle bursts.", "Set to 0 to disable."})
+		@Config.RangeDouble(min = 0)
+		public double burstParticleRate = 0.5;
+	}
+
+	@SubscribeEvent
+	public static void configChanged(ConfigChangedEvent.OnConfigChangedEvent e) {
+		if (e.getModID().equals(EasyPickings.MODID)) {
+			ConfigManager.load(EasyPickings.MODID, Config.Type.INSTANCE);
+		}
+	}
 }

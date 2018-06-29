@@ -2,6 +2,7 @@ package com.headfishindustries.easypickings.blocks;
 
 import java.util.Random;
 
+import com.headfishindustries.easypickings.EasyConfiggings;
 import com.headfishindustries.easypickings.EasyPickings;
 import com.headfishindustries.easypickings.utils.MathsyStuff;
 
@@ -27,6 +28,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class FlowerDaybloom extends BlockBush{	
 	protected int dedchance = 216000;
+	protected int manaGen = EasyConfiggings.flowerSettings.daybloomMana;
 
 	public FlowerDaybloom() {
 		super(Material.LEAVES);
@@ -55,22 +57,27 @@ public class FlowerDaybloom extends BlockBush{
 
 			BlockPos target = MathsyStuff.offsetRandomly(pos, 5, rand);
 			if (worldIn.getTileEntity(target) instanceof vazkii.botania.api.mana.IManaReceiver){
-				((vazkii.botania.api.mana.IManaReceiver)worldIn.getTileEntity(target)).recieveMana(1);
+				((vazkii.botania.api.mana.IManaReceiver)worldIn.getTileEntity(target)).recieveMana(this.getManaGen());
 			}
 		}
 	}
 	
 	
-	private int getDedchance(){
+	protected int getDedchance(){
 		return this.dedchance;
+	}
+	
+	protected int getManaGen() {
+		return this.manaGen;
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState s, World worldIn, BlockPos pos, Random rand) {
+		if (rand.nextDouble() >= EasyConfiggings.flowerSettings.burstParticleRate) return;
 		Vec3d dir = new Vec3d(rand.nextDouble(), rand.nextDouble(), rand.nextDouble()).normalize();
-		int n = rand.nextInt(48);
-		if (n < 4 || n >20) return;
+		int n = rand.nextInt(EasyConfiggings.flowerSettings.maxBurstParticles);
+		EasyPickings.LOGGER.info(n);
 		for (int i = 0; i<n; i++) {
 			Vec3d cur_dir = dir.rotateYaw((float) (2f * i * Math.PI / n));
 			worldIn.spawnParticle(EnumParticleTypes.CRIT_MAGIC, pos.getX() + cur_dir.x * 0.75 + 0.5, pos.getY() + cur_dir.y * 0.5, pos.getZ() + cur_dir.z * 0.25 + 0.5, cur_dir.x * 0.5, cur_dir.y, cur_dir.z);
