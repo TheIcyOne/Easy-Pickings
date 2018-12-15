@@ -2,17 +2,26 @@ package com.headfishindustries.easypickings.proxy;
 
 import com.headfishindustries.easypickings.EasyPickings;
 import com.headfishindustries.easypickings.blocks.IWantMyOwnBlockColour;
-import com.headfishindustries.easypickings.blocks.fire.ImbuedFireBase;
+import com.headfishindustries.easypickings.entity.EntityEggBomb;
 import com.headfishindustries.easypickings.items.IWantMyOwnItemColour;
-import com.headfishindustries.easypickings.items.ItemImbuedFire;
-
+import com.headfishindustries.easypickings.items.ItemEggBomb;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy{
+	
+	@Override
+	public void preInit(FMLPreInitializationEvent e) {
+		super.preInit(e);
+		RenderingRegistry.registerEntityRenderingHandler(EntityEggBomb.class, renderManager -> new RenderSnowball<>(renderManager, EasyPickings.STUFF_DEFS.itemEggBomb, Minecraft.getMinecraft().getRenderItem()));
+	}
+	
 	@Override
     public void init(FMLInitializationEvent e){
     	BlockColors  blockColour = Minecraft.getMinecraft().getBlockColors();

@@ -1,0 +1,13 @@
+{
+
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+	"EEE",
+	"ETE",
+	"EEE"],
+	"key":{ "T": {"item": "minecraft:tnt"},
+			"E": {"item": "minecraft:egg"}
+		},
+	"result": {"item": "easypickings:egg_bomb", "count":1}
+
+}

@@ -104,6 +104,16 @@ public class EasyConfiggings{
 		public double burstParticleRate = 0.5;
 	}
 
+	@Config.Name(value = "Miscellaneous Settings.")
+	@Config.Comment(value = { "Stuff what I can't group easy."})
+	@Config.RequiresWorldRestart
+	@Config.RequiresMcRestart
+	public static MiscSettings miscsettings = new MiscSettings();
+	public static class MiscSettings{
+		@Config.Comment(value = {"Chickens spawned per bomb."})
+		public int clucksPerBomb = 64;
+	}
+	
 	@SubscribeEvent
 	public static void configChanged(ConfigChangedEvent.OnConfigChangedEvent e) {
 		if (e.getModID().equals(EasyPickings.MODID)) {

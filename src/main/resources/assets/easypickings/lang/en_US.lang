@@ -19,6 +19,8 @@ item.imbuedfire_order.name=Order Infused Fire
 item.imbuedfire_loss.name=Chaos Infused Fire
 item.imbuedfire_wrath.name=Wrath Infused Fire
 
+item.egg_bomb.name=Egg Bomb
+
 lore.fire.air=Give the world its just desserts.
 lore.fire.earth=Look deep into nature, and then you will understand everything better.
 lore.fire.fire=Choose me or your pyre.

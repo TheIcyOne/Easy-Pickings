@@ -2,12 +2,14 @@ package com.headfishindustries.easypickings;
 
 import com.headfishindustries.easypickings.blocks.*;
 import com.headfishindustries.easypickings.blocks.fire.*;
+import com.headfishindustries.easypickings.entity.EntityEggBomb;
 import com.headfishindustries.easypickings.items.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class StuffDefs {
 	
@@ -40,6 +42,8 @@ public class StuffDefs {
 	public ItemUnstableGoo itemUnstableGoo;
 	
 	public ItemBlock itemClimbingRock;
+	
+	public Item itemEggBomb;
 	
 /*	public ItemObsidianArmour obsidianHat;
 	public ItemObsidianArmour obsidianStomachGuard;
@@ -86,6 +90,8 @@ public class StuffDefs {
 		this.blockClimbingRock = (BlockClimbingRock) new BlockClimbingRock().setRegistryName(climbRockRL);
 		this.itemClimbingRock = (ItemBlock) new ItemBlock(blockClimbingRock).setRegistryName(climbRockRL);
 		
+		this.itemEggBomb = new ItemEggBomb().setRegistryName(new ResourceLocation(EasyPickings.MODID, "egg_bomb")).setUnlocalizedName("egg_bomb");
+		
 /*		this.obsidianHat = new ItemObsidianArmour(EntityEquipmentSlot.HEAD, "obsidian_helmet", ItemObsidianArmour.obsidianArmourMaterial);
 		this.obsidianStomachGuard = new ItemObsidianArmour(EntityEquipmentSlot.CHEST, "obsidian_chestplate", ItemObsidianArmour.obsidianArmourMaterial);
 		this.obsidianTrouser = new ItemObsidianArmour(EntityEquipmentSlot.LEGS, "obsidian_legs", ItemObsidianArmour.obsidianArmourMaterial);
@@ -104,6 +110,7 @@ public class StuffDefs {
 					this.blockWaterFire,
 					this.blockWrathFire);
 			event.getRegistry().register(blockClimbingRock);
+			
 
 	}
 	
@@ -116,10 +123,18 @@ public class StuffDefs {
 		
 		event.getRegistry().register(this.itemClimbingRock);
 		
+		event.getRegistry().register(this.itemEggBomb);
+		
 /*		event.getRegistry().register(this.obsidianHat);
 		event.getRegistry().register(this.obsidianStomachGuard);
 		event.getRegistry().register(this.obsidianTrouser);
 		event.getRegistry().register(this.obsidianShoe); */
+	}
+	
+	public void entityInit() {
+		int id = 0;
+		
+		EntityRegistry.registerModEntity(new ResourceLocation(EasyPickings.MODID, "egg_bomb"), EntityEggBomb.class, "easypickings:egg_bomb", id++, EasyPickings.MODID, 64, 20, true);
 	}
 
 }

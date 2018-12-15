@@ -33,6 +33,8 @@ public class EasyPickings
     
     public static final StuffDefs STUFF_DEFS = new StuffDefs();
     
+    public static final EasyPickings INSTANCE = new EasyPickings();
+    
     @SidedProxy(serverSide="com.headfishindustries.easypickings.proxy.CommonProxy", clientSide="com.headfishindustries.easypickings.proxy.ClientProxy")
     static CommonProxy proxy;
     
@@ -44,13 +46,12 @@ public class EasyPickings
     public void preInit(FMLPreInitializationEvent e)
     {
        proxy.preInit(e);
+       
     }
     
     @EventHandler
     public void init(FMLInitializationEvent e){
     	proxy.init(e);
-    	
-    	
     }
     
     @SubscribeEvent
@@ -83,6 +84,8 @@ public class EasyPickings
     	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemUnstableGoo, 0, new ModelResourceLocation(MODID + ":unstable_goo", "inventory"));
     	
     	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemClimbingRock, 0, new ModelResourceLocation(MODID + ":climbing_rock", "inventory"));
+    	
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemEggBomb, 0, new ModelResourceLocation(MODID + ":egg_bomb", "inventory"));
     	
     	ModelResourceLocation fire = new ModelResourceLocation(MODID + ":imbued_fire", "inventory");
     	
