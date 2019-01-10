@@ -11,6 +11,9 @@ tile.imbuedfire_order.name=Order Infused Fire
 tile.imbuedfire_loss.name=Chaos Infused Fire
 tile.imbuedfire_wrath.name=Wrath Infused Fire
 
+tile.shovey_block_push_only.name=Shovey Block
+tile.shovey_block_normal.name=Sticky Shovey Block
+
 item.imbuedfire_air.name=Air Infused Fire
 item.imbuedfire_earth.name=Earth Infused Fire
 item.imbuedfire_fire.name=Fire Infused Fire

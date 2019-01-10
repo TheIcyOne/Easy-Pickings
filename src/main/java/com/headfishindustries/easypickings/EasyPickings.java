@@ -85,6 +85,9 @@ public class EasyPickings
     	
     	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemClimbingRock, 0, new ModelResourceLocation(MODID + ":climbing_rock", "inventory"));
     	
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemPushOnly, 0, new ModelResourceLocation(MODID + ":push_only", "inventory"));
+    	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemPushPull, 0, new ModelResourceLocation(MODID + ":push_pull", "inventory"));
+    	
     	ModelLoader.setCustomModelResourceLocation(STUFF_DEFS.itemEggBomb, 0, new ModelResourceLocation(MODID + ":egg_bomb", "inventory"));
     	
     	ModelResourceLocation fire = new ModelResourceLocation(MODID + ":imbued_fire", "inventory");

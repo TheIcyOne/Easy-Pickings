@@ -27,6 +27,9 @@ public class StuffDefs {
 	
 	public BlockClimbingRock blockClimbingRock;
 	
+	public BlockShoveable blockPushPull;
+	public BlockShoveable blockPushOnly;
+	
 	//Itemo
 	public ItemBlock itemNightshade;
 	public ItemBlock itemDaybloom;
@@ -42,6 +45,8 @@ public class StuffDefs {
 	public ItemUnstableGoo itemUnstableGoo;
 	
 	public ItemBlock itemClimbingRock;
+	public ItemBlock itemPushPull;
+	public ItemBlock itemPushOnly;
 	
 	public Item itemEggBomb;
 	
@@ -90,6 +95,11 @@ public class StuffDefs {
 		this.blockClimbingRock = (BlockClimbingRock) new BlockClimbingRock().setRegistryName(climbRockRL);
 		this.itemClimbingRock = (ItemBlock) new ItemBlock(blockClimbingRock).setRegistryName(climbRockRL);
 		
+		this.blockPushOnly = new BlockShoveable(false);
+		this.itemPushOnly = (ItemBlock) new ItemBlock(blockPushOnly).setRegistryName(this.blockPushOnly.getRegistryName()).setUnlocalizedName(this.blockPushOnly.getUnlocalizedName());
+		this.blockPushPull = new BlockShoveable(true);
+		this.itemPushPull = (ItemBlock) new ItemBlock(blockPushPull).setRegistryName(this.blockPushPull.getRegistryName()).setUnlocalizedName(this.blockPushPull.getUnlocalizedName());
+		
 		this.itemEggBomb = new ItemEggBomb().setRegistryName(new ResourceLocation(EasyPickings.MODID, "egg_bomb")).setUnlocalizedName("egg_bomb");
 		
 /*		this.obsidianHat = new ItemObsidianArmour(EntityEquipmentSlot.HEAD, "obsidian_helmet", ItemObsidianArmour.obsidianArmourMaterial);
@@ -111,6 +121,8 @@ public class StuffDefs {
 					this.blockWrathFire);
 			event.getRegistry().register(blockClimbingRock);
 			
+			event.getRegistry().registerAll(this.blockPushOnly, this.blockPushPull);
+			
 
 	}
 	
@@ -122,6 +134,8 @@ public class StuffDefs {
 		event.getRegistry().registerAll(this.itemAirFire, this.itemEarthFire, this.itemFireFire, this.itemWaterFire, this.itemOrderFire, this.itemPerditionFire, this.itemWrathFire);
 		
 		event.getRegistry().register(this.itemClimbingRock);
+		
+		event.getRegistry().registerAll(this.itemPushOnly, this.itemPushPull);
 		
 		event.getRegistry().register(this.itemEggBomb);
 		
