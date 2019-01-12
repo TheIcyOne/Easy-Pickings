@@ -8,6 +8,7 @@ import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -20,12 +21,13 @@ public class BlockShoveable extends Block{
 	boolean isPullable;
 
 	public BlockShoveable(boolean pullable) {
-		super(Material.PISTON, MapColor.BLACK_STAINED_HARDENED_CLAY);
+		super(Material.IRON, MapColor.BLACK_STAINED_HARDENED_CLAY);
 		this.setHardness(18000004); //Pistons have a check for hardness == -1, so we can't use that. Thanks Notch.
 		this.setResistance(18000004); //come at me barrier
 		this.setRegistryName(new ResourceLocation(EasyPickings.MODID, "shovey_block_" + (pullable ? "normal": "push_only")));
 		this.setUnlocalizedName("shovey_block_" + (pullable ? "normal": "push_only"));
 		this.isPullable = pullable;
+		this.setHarvestLevel("screw_you_no_break", -1);
 	}
 
 	@Override
@@ -38,6 +40,16 @@ public class BlockShoveable extends Block{
 	public NonNullList<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState s, int fortune){
 		return NonNullList.create();
 	}
+	
+	@Override
+	public int getHarvestLevel(IBlockState st) {
+		return -1;
+	}
+	
 
+	@Override
+	public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player) {
+		return player.capabilities.isCreativeMode;
+	}
 
 }
